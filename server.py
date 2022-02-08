@@ -74,13 +74,16 @@ def contact():
 @app.route('/submit_form', methods=['POST', 'GET'])
 def submit_form():
     if request.method == 'POST':
-        data = request.form.to_dict()
-        email = data['email']
-        subject = data['subject']
-        message = data['message']
-        mail.send_message('Message from ' + email + ' and subject is ' + subject,
-                          sender=data['email'], recipients=[app.config['MAIL_USERNAME']], body=f' you will receive message from {email} this and the message is  {message}')
-        return render_template('thankyou.html')
+        try:
+            data = request.form.to_dict()
+            email = data['email']
+            subject = data['subject']
+            message = data['message']
+            mail.send_message('Message from ' + email + ' and subject is ' + subject,
+                              sender=data['email'], recipients=[app.config['MAIL_USERNAME']], body=f' you will receive message from {email} this and the message is  {message}')
+            return render_template('thankyou.html')
+        except:
+            print('Something Wrong')
     else:
         return 'Something went wrong, Try Again!'
 
