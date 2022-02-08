@@ -1,4 +1,0 @@
-Email, Subject, Message
-ashwinam31@gmail.com, HTML, asssssssss
-ashwinam31@gmail.com, Django, assssssssssaaaaaaaaaaaaaaaaa
-ashwinam31@gmail.com, Python, assaasa
